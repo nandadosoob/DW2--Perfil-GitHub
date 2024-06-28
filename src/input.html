@@ -4,24 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./output.css">
+    <script src="./script.js" defer></script>
     <title>Document</title>
 </head>
 <body>
-    <div class="max-w-xl h-16 flex-row justify-self-center items-center">
+    <div class="w-full h-16 flex flex-row items-center gap-2 px-4">
         <label class="text-gray-700">Usuário Github</label>
-        <input placeholder="usuário" class="w-56 h-10 bg-slate-200 rounded text-gray-900 ps-2">
-        <button class="bg-purple-500 rounded w-24 h-10 text-white">Adicionar</button>
+        <input placeholder="usuário" class="w-56 h-10 bg-slate-200 rounded text-gray-900 ps-2" id="nomeUsuario">
+        <button class="bg-purple-500 rounded w-24 h-10 text-white" id="botaoAdiciona">Adicionar</button>
     </div>
 
-    <div class="border-solid border-2 border-stone-400 h-96 w-80 ">
-        <img class="bg-blue-700 w-5">
-        <img>
-        <h3> nome</h3>
-        <p>login</p>
-        <div>repositorios 
-            <h6>nome-repositorio</h6>
-            <p>descricao</p>
-            <span>linguagens</span>
+    <div class="border-solid border-2 border-stone-400 h-96 w-80 flex flex-col m-4">
+        <img id="imgPerfil" src="../teste-perfil-git/130059223.jpg" class="rounded-full  w-20 h-20 border-4 border-white self-center absolute top-40">
+        <img src="../teste-perfil-git/o-que-e-paisagem.jpg.png" class=" h-28 w-full self-center">
+        <br>
+        <br>
+        <h3 class="self-center"> nome</h3>
+        <p class="self-center">login</p>
+        <p class="text-xs font-semibold px-4 py-2">REPOSITÓRIOS</p>
+        <div class="w-72 h-28 bg-neutral-200 rounded-md border-2 border-neutral-300 ps-2 self-center">
+            <h6 class="font-bold text-sm">nome-repositorio</h6>
+            <p class="text-sm text-gray-600">descricao</p>
+            <span class="bg-neutral-400 text-xs font-bold w-auto px-1">#linguagens</span>
         </div>
 
     </div>
