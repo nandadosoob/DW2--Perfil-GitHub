@@ -11,7 +11,7 @@
     <div class="w-full h-16 flex flex-row items-center gap-2 px-4">
         <label class="text-gray-700">Usuário Github</label>
         <input placeholder="usuário" class="w-56 h-10 bg-slate-200 rounded text-gray-900 ps-2" id="nomeUsuario">
-        <button class="bg-purple-500 rounded w-24 h-10 text-white" id="botaoAdiciona">Adicionar</button>
+        <button class="bg-purple-500 rounded w-24 h-10 text-white" id="botaoAdiciona" onclick="carregaUsuario()">Adicionar</button>
     </div>
 
     <div class="border-solid border-2 border-stone-400 h-96 w-80 flex flex-col m-4">
@@ -19,12 +19,12 @@
         <img id="imgFundo" src="../teste-perfil-git/o-que-e-paisagem.jpg.png" class=" h-28 w-full self-center">
         <br>
         <br>
-        <h3 class="self-center" id="nomeUsuario"></h3>
-        <p class="self-center" id="IDlogin">login</p>
+        <p class="self-center" id="nomeUsuario"></p>
+        <p class="self-center" id="IDlogin"></p>
         <p class="text-xs font-semibold px-4 py-2">REPOSITÓRIOS</p>
         <div class="w-72 h-28 bg-gray-200 rounded-md border-2 border-neutral-300 ps-2 self-center">
-            <h6 class="font-bold text-sm" id="nomeRepositorio">nome-repositorio</h6>
-            <p class="text-sm text-gray-600" id="descricao">descricao</p>
+            <h6 class="font-bold text-sm" id="nomeRepositorio"></h6>
+            <p class="text-sm text-gray-600" id="descricao"></p>
             <span class="bg-neutral-400 text-xs font-bold w-auto px-1 rounded" id="ling">#linguagens</span>
         </div>
 
