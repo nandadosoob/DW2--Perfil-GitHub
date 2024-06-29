@@ -7,6 +7,7 @@ const login = document.getElementById("IDlogin")
 const repositorioNome = document.getElementById("nomeRepositorio")
 const descRepositorio = document.getElementById("descricao")
 const linguagens = document.getElementById("ling")
+const caixaUsuario = document.getElementById("caixa")
 
 
 botaoAdd.addEventListener("click", () => {
@@ -47,7 +48,7 @@ function carregaUsuario() {
 function carregaRespositorio() {
     let user = "nandadosoob"
 
-    let repository = "Dw1"
+    // let repository = "Dw1"
     let repositoryUrl = `https://api.github.com/repos/${user}/${repository}`
     // let repositoryUrl = `https://api.github.com/users/${user}/repos/${repository}`
     // let repositoryUrl = `https://api.github.com/${user}/${repository}`
@@ -56,26 +57,37 @@ function carregaRespositorio() {
         .then((resposta) => {
             return resposta.json()
         })
-        .then ((dadosRepositorio) => {
+        .then((dadosRepositorio) => {
+            console.log(dadosRepositorio)
 
-            //nome do respositorio
-            console.log(dadosRepositorio.name)
-            repositorioNome.innerHTML = dadosRepositorio.name
+            // dadosRepositorio.forEach(() => {
+            //     let cartao = document.createElement("div")
 
-            //descricao do repositorio
-            console.log(dadosRepositorio.description)
-            descRepositorio.innerHTML = dadosRepositorio.description
+            //     caixaUsuario.innerHTML = `
+            //     <h6 class="font-bold text-sm" id="nomeRepositorio"></h6>
+            //     <p class="text-sm text-gray-600" id="descricao"></p>
+            //     <span class="bg-neutral-400 text-xs font-bold w-auto px-1 rounded" id="ling"></span>
+            //         `
+            //     console.log(dadosRepositorio.name)
+            //     repositorioNome.innerHTML = dadosRepositorio.name
+
+            //     //descricao do repositorio
+            //     console.log(dadosRepositorio.description)
+            //     descRepositorio.innerHTML = dadosRepositorio.description
+
+            //     console.log(dadosRepositorio.language)
+            //     linguagens.innerHTML = `#${dadosRepositorio.language}`
+
+            //     caixaUsuario.appendChild(cartao)
+
+            // });
+
         })
         .catch((erro) => console.log(erro))
-
-    //repositorios
-
-    //nome do repositorio
-
-
-    //linguagens utilizadas
 }
+
 
 
 carregaUsuario()
 carregaRespositorio()
+// carregaLinguagens()
