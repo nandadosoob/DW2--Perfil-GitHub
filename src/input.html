@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,27 +8,38 @@
     <script src="./script.js" defer></script>
     <title>Document</title>
 </head>
+
 <body>
     <div class="w-full h-16 flex flex-row items-center gap-2 px-4">
         <label class="text-gray-700">Usuário Github</label>
         <input placeholder="usuário" class="w-56 h-10 bg-slate-200 rounded text-gray-900 ps-2" id="nomeUsuario">
-        <button class="bg-purple-500 rounded w-24 h-10 text-white" id="botaoAdiciona" onclick="carregaUsuario()">Adicionar</button>
+        <button class="bg-purple-500 rounded w-24 h-10 text-white" id="botaoAdiciona"
+            onclick="carregaUsuario()">Adicionar</button>
     </div>
 
-    <div class="border-solid border-2 border-stone-400 h-96 w-80 flex flex-col m-4 rounded-md" id="caixa">
-        <img id="imgPerfil" src="../teste-perfil-git/130059223.jpg" class="rounded-full  w-20 h-20 border-4 border-white self-center absolute top-40">
-        <img id="imgFundo" src="../teste-perfil-git/o-que-e-paisagem.jpg.png" class=" h-28 w-full self-center">
-        <br>
-        <br>
-        <p class="self-center" id="nomeUsuario"></p>
-        <p class="self-center" id="IDlogin"></p>
-        <p class="text-xs font-semibold px-4 py-2">REPOSITÓRIOS</p>
-        <div class="w-72 h-28 bg-gray-200 rounded-md border-2 border-neutral-300 ps-2 self-center">
-            <h6 class="font-bold text-sm" id="nomeRepositorio"></h6>
-            <p class="text-sm text-gray-600" id="descricao"></p>
-            <span class="bg-neutral-400 text-xs font-bold w-auto px-1 rounded" id="ling"></span>
-        </div>
+    <div id="espacoCartoes" class="flex flex-row">
 
+
+        <div class="border-solid border-2 border-stone-400 h-96 w-80 flex flex-col m-4 rounded-md" id="caixa">
+            <img id="imgPerfil" src="../teste-perfil-git/130059223.jpg"
+                class="rounded-full  w-20 h-20 border-4 border-white self-center absolute top-40">
+            <img id="imgFundo" src="../teste-perfil-git/o-que-e-paisagem.jpg.png" class=" h-28 w-full self-center">
+            <br>
+            <br>
+            <p class="self-center" id="nomeUsuario"></p>
+            <p class="self-center" id="IDlogin"></p>
+            <p class="text-xs font-semibold px-4 py-2">REPOSITÓRIOS</p>
+            <div id="divRepositorios" class="w-auto h-auto">
+                <!-- <div class="w-72 h-28 bg-gray-200 rounded-md border-2 border-neutral-300 ps-2 self-center">
+                    <h6 class="font-bold text-sm" id="nomeRepositorio"></h6>
+                    <p class="text-sm text-gray-600" id="descricao"></p>
+                    <span class="bg-neutral-400 text-xs font-bold w-auto px-1 rounded" id="ling">
+                    </span>
+                </div> -->
+            </div>
+
+        </div>
     </div>
 </body>
+
 </html>
