@@ -90,7 +90,7 @@ function carregaRespositorio() {
 
             dadosRepositorio.forEach((repo) => {
                 const cartao = document.createElement("div")
-                cartao.classList = "w-72 h-28 bg-gray-200 rounded-md border-2 border-neutral-300 ps-2 self-center"
+                cartao.classList = "w-72 h-28 bg-gray-200 rounded-md border-2 border-neutral-300 ps-2 self-center py-3"
 
                 cartao.innerHTML = `<h6 class="font-bold text-sm" id="nomeRepositorio"> ${repo.name}</h6>
                     <p class="text-sm text-gray-600" id="descricao"> ${repo.description}</p>
