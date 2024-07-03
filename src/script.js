@@ -1,8 +1,9 @@
 const inputUsuario = document.getElementById("nomeUsuario")
 const botaoAdd = document.getElementById("botaoAdiciona")
-// const fotoPerfil = document.getElementById("imgPerfil")
+const fotoPerfil = document.getElementById("imgPerfil")
 const fotoFundo = document.getElementById("imgFundo")
-const nome = document.getElementById("nomeUsuario")
+// const nome = document.querySelector("#nomeUsuario")
+const nome = document.getElementById("nomeUsuarios")
 const login = document.getElementById("IDlogin")
 const repositorioNome = document.getElementById("nomeRepositorio")
 const descRepositorio = document.getElementById("descricao")
@@ -50,17 +51,19 @@ function adicionaCartao() {
                 <img id="imgFundo" src="../teste-perfil-git/o-que-e-paisagem.jpg.png" class=" h-28 w-full self-center">
                 <br>
                 <br>
-                <p class="self-center" id="nomeUsuario"></p>
-                <p class="self-center" id="IDlogin"></p>
+                <p class="self-center" id="nomeUsuario">${dados.name}</p>
+                <p class="self-center" id="IDlogin">${dados.login}</p>
                 <p class="text-xs font-semibold px-4 py-2">REPOSITÓRIOS</p>
-                <div class="w-72 h-28 bg-gray-200 rounded-md border-2 border-neutral-300 ps-2 self-center">
-                    <h6 class="font-bold text-sm" id="nomeRepositorio"></h6>
-                    <p class="text-sm text-gray-600" id="descricao"></p>
-                    <span class="bg-neutral-400 text-xs font-bold w-auto px-1 rounded" id="ling">
-                    </span>
-                </div>`
-            espacoCartao.appendChild(novoCard)
-        })
+                `
+                espacoCartao.appendChild(novoCard)
+
+                // <div class="w-72 h-28 bg-gray-200 rounded-md border-2 border-neutral-300 ps-2 self-center">
+                //     <h6 class="font-bold text-sm" id="nomeRepositorio"></h6>
+                //     <p class="text-sm text-gray-600" id="descricao"></p>
+                //     <span class="bg-neutral-400 text-xs font-bold w-auto px-1 rounded" id="ling">
+                //     </span>
+                // </div>
+            })
 
         .catch((erro) => console.log(erro))
 
@@ -68,43 +71,36 @@ function adicionaCartao() {
 }
 
 
-function carregaUsuario() {
+// function carregaUsuario() {
+//     let user = inputUsuario.value
+//     // let user = "nandadosoob"
+//     let url = `https://api.github.com/users/${user}`
+
+//     fetch(url)
+//         .then((resposta) => {
+//             return resposta.json()
+//         })
+//         .then((dados) => {
+//             //foto de perfil
+//             console.log(dados.avatar_url)
+//             fotoPerfil.setAttribute("src", dados.avatar_url)
+
+//             //nome
+//             nome.innerHTML = dados.name;
+//             console.log(dados.name)
+
+//             //login
+//             console.log(dados.login)
+//             login.innerHTML = dados.login;
+
+//         })
+
+//         .catch((erro) => console.log(erro))
+// }
+
+function carregaRespositorio() {
     let user = inputUsuario.value
-    // let user = "nandadosoob"
-    let url = `https://api.github.com/users/${user}`
 
-    fetch(url)
-        .then((resposta) => {
-            return resposta.json()
-        })
-        .then((dados) => {
-            //foto de perfil
-            console.log(dados.avatar_url)
-            fotoPerfil.setAttribute("src", dados.avatar_url)
-
-            //nome
-            console.log(dados.name)
-            nome.innerHTML = dados.name;
-
-            //login
-            console.log(dados.login)
-            login.innerHTML = dados.login;
-
-        })
-
-        .catch((erro) => console.log(erro))
-}
-
-function carregaRespositorio(user) {
-    // let user = "nandadosoob"
-
-    // let qntRepositorios = `https://api.github.com/users/${user}`
-
-
-    // let repository = "Dw1"
-    // let repositoryUrl = `https://api.github.com/users/${user}/repos/${repository}`
-    // let repositoryUrl = `https://api.github.com/${user}/${repository}`
-    // let repositoryUrl = `https://api.github.com/repos/${user}/${repository}`
     let repositoryUrl = `https://api.github.com/users/${user}/repos`
 
     fetch(repositoryUrl)
@@ -124,26 +120,8 @@ function carregaRespositorio(user) {
                     <span class="bg-neutral-400 text-xs font-bold w-auto px-1 rounded" id="ling">${repo.language}
                     </span>`
                 
-                
-
-                // cartao.innerHTML = `
-                // <h6 class="font-bold text-sm" id="nomeRepositorio"></h6>
-                // <p class="text-sm text-gray-600" id="descricao"></p>
-                // <span class="bg-neutral-400 text-xs font-bold w-auto px-1 rounded" id="ling"></span>
-                // `
-                // console.log(dadosRepositorio.name)
-                // repositorioNome.innerHTML = dadosRepositorio.name
-
-                // descricao do repositorio
-                // console.log(dadosRepositorio.description)
-                // descRepositorio.innerHTML = dadosRepositorio.description
-                
-                // console.log(dadosRepositorio.language)
-                // linguagens.innerHTML = `#${dadosRepositorio.language}`
-                
                 caixaRepositorios.appendChild(cartao)
                 
-                // console.log(repo)
             });
 
         })
