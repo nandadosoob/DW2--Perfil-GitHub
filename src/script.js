@@ -1,24 +1,21 @@
 const inputUsuario = document.getElementById("nomeUsuario")
 const botaoAdd = document.getElementById("botaoAdiciona")
-const fotoPerfil = document.getElementById("imgPerfil")
-const fotoFundo = document.getElementById("imgFundo")
-// const nome = document.querySelector("#nomeUsuario")
-const nome = document.getElementById("nomeUsuarios")
-const login = document.getElementById("IDlogin")
-const repositorioNome = document.getElementById("nomeRepositorio")
-const descRepositorio = document.getElementById("descricao")
-const linguagens = document.getElementById("ling")
-const caixaUsuario = document.getElementById("caixa")
+// const caixaUsuario = document.getElementById("caixa")
 const espacoCartao = document.getElementById("espacoCartoes")
 
 
 
 botaoAdd.addEventListener("click", () => {
+    if (inputUsuario.value === ''){
+        alert("Entre com um usuário válido")
+    } else{
+        adicionaCartao()
+        inputUsuario.value = ''
 
-    adicionaCartao()
-  
-    inputUsuario.value = ''
+    }
 })
+
+
 
 function adicionaCartao() {
     const novoCard = document.createElement("div")
@@ -44,14 +41,24 @@ function adicionaCartao() {
                 <p class="text-xs font-semibold px-4 py-2">REPOSITÓRIOS</p>
                 <div id="divRepositorios" class="w-auto h-44 flex flex-col items-center gap-3 overflow-auto"></div>
                 `
+                
+
+
                 espacoCartao.appendChild(novoCard)
 
                 const caixaRepositorios = novoCard.querySelector("#divRepositorios");
                 carregaRespositorio(user, caixaRepositorios)
+
+                // console.log("Usuário não encontrado, por favor digite um usuário existente")
+
                
             })
 
-        .catch((erro) => console.log(erro))
+        .catch((erro) => {
+            console.log("errp: ",erro)
+            alert("Usuário não encontrado, por favor digite um usuário existente" + erro.message)
+        })
+        // .catch((erro) => console.log(erro))
 
 
 }
@@ -79,7 +86,6 @@ function carregaRespositorio(user,caixaRepositorios) {
                 </div>`
                 
                 caixaRepositorios.appendChild(cartao)
-                console.log(caixaRepositorios)
                 
             });
             
