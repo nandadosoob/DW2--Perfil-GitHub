@@ -1,6 +1,5 @@
 const inputUsuario = document.getElementById("nomeUsuario")
 const botaoAdd = document.getElementById("botaoAdiciona")
-// const caixaUsuario = document.getElementById("caixa")
 const espacoCartao = document.getElementById("espacoCartoes")
 
 
@@ -11,10 +10,15 @@ botaoAdd.addEventListener("click", () => {
     } else{
         adicionaCartao()
         inputUsuario.value = ''
-
     }
 })
 
+inputUsuario.addEventListener("keypress", (e) =>{
+    if (e.key === 'Enter'){
+        adicionaCartao()
+        inputUsuario.value = ''
+    }
+})
 
 
 function adicionaCartao() {
@@ -24,6 +28,9 @@ function adicionaCartao() {
 
     fetch(url)
         .then((resposta) => {
+            if (!resposta.ok){
+                throw new Error("Não foi possível encontrar o usuário")
+            }
             return resposta.json()
         })
         .then((dados) => {
@@ -41,32 +48,20 @@ function adicionaCartao() {
                 <p class="text-xs font-semibold px-4 py-2">REPOSITÓRIOS</p>
                 <div id="divRepositorios" class="w-auto h-44 flex flex-col items-center gap-3 overflow-auto"></div>
                 `
-                
-
-
                 espacoCartao.appendChild(novoCard)
 
                 const caixaRepositorios = novoCard.querySelector("#divRepositorios");
                 carregaRespositorio(user, caixaRepositorios)
-
-                // console.log("Usuário não encontrado, por favor digite um usuário existente")
-
-               
             })
 
-        .catch((erro) => {
-            console.log("errp: ",erro)
-            alert("Usuário não encontrado, por favor digite um usuário existente" + erro.message)
-        })
-        // .catch((erro) => console.log(erro))
-
-
+        .catch((erro => {
+            alert("Usuário não encontrado, por favor digite um usuário existente", erro)
+        
+        }
+        ))
 }
 
-
 function carregaRespositorio(user,caixaRepositorios) {
-    // let user = inputUsuario.value
-
     let repositoryUrl = `https://api.github.com/users/${user}/repos`
 
     fetch(repositoryUrl)
@@ -74,7 +69,6 @@ function carregaRespositorio(user,caixaRepositorios) {
         return resposta.json()
     })
     .then((dadosRepositorio) => {            
-            
             dadosRepositorio.forEach((repo) => {
                 const cartao = document.createElement("div")
                 
@@ -86,7 +80,6 @@ function carregaRespositorio(user,caixaRepositorios) {
                 </div>`
                 
                 caixaRepositorios.appendChild(cartao)
-                
             });
             
         })
